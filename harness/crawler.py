@@ -179,7 +179,7 @@ def build_full_inventory() -> List[SourceRecord]:
     # Find all tournament-level entries
     # Pattern in allproblems.php: links to /en/problems/NN/fall-NN-O-eng-auth.pdf etc.
     pdf_pattern = re.compile(
-        r"/en/problems/(\d+)/(fall|spring|spr)-(\d+)-(O|A)-(eng|rus)-auth\.pdf",
+        r"(?:/en/problems/)?(\d+)/(fall|spring|spr)-(\d+)-(O|A)-(eng|rus)-auth\.pdf",
         re.IGNORECASE
     )
 
@@ -200,7 +200,12 @@ def build_full_inventory() -> List[SourceRecord]:
         # Try to infer date from surrounding text (best-effort)
         date = _infer_date(tourn_num, round_name)
 
-        full_url = BASE_URL + href if href.startswith("/") else href
+        if href.startswith("http"):
+            full_url = href
+        elif href.startswith("/"):
+            full_url = BASE_URL + href
+        else:
+            full_url = "https://www.turgor.ru/en/problems/" + href
         source_type = "pdf_english" if lang == "eng" else "pdf_russian"
         needs_translation = (lang != "eng")
 
