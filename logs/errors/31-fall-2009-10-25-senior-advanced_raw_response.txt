@@ -1,0 +1,53 @@
+{
+  "problems": [
+    {
+      "number": 1,
+      "points": 4,
+      "text": "100 pirates played cards on golden sand, and then each counted how much they won or lost in total. Each loser has enough gold to pay off. In one operation, a pirate can either distribute gold evenly to all or receive gold evenly from each. Prove that in several such operations, it is possible to achieve that each receives (in total) their winnings or pays off their losses. (Obviously, the total amount of winnings is equal to the sum of losses).",
+      "author": "E.N. Gorinov",
+      "note": ""
+    },
+    {
+      "number": 2,
+      "points": 6,
+      "text": "From N rectangular tiles (possibly of different sizes), a rectangle with unequal sides is formed. Prove that it is possible to cut each tile into two parts so that from N parts, a square can be formed, and from the remaining N parts, a rectangle can be formed.",
+      "author": "A.V. Shapovalov",
+      "note": ""
+    },
+    {
+      "number": 3,
+      "points": 7,
+      "text": "A sphere touches all the edges of a tetrahedron. We connect the points of tangency on pairs of non-adjacent edges. Prove that the three resulting lines intersect at one point.",
+      "author": "V.V. Proizvolov",
+      "note": ""
+    },
+    {
+      "number": 4,
+      "points": 9,
+      "text": "We denote by [n]! the product $1 \cdot 11 \cdot 111 \cdot \ldots \cdot \underbrace{11\ldots11}_{n \text{ ones}}$ -- a total of n factors. Prove that the number [n + m]! is divisible by the product [n]! $\cdot$ [m]!.",
+      "author": "M.A. Bershtein",
+      "note": ""
+    },
+    {
+      "number": 5,
+      "points": 9,
+      "text": "Given a triangle XYZ and a convex hexagon ABCDEF. The sides AB, CD, and EF are parallel and equal to the sides XY, YZ, and ZX, respectively. Prove that the area of the triangle with vertices at the midpoints of the sides BC, DE, and FA is not less than the area of the triangle XYZ.",
+      "author": "N. Belukhov",
+      "note": ""
+    },
+    {
+      "number": 6,
+      "points": 12,
+      "text": "Olya and Maxim paid for a trip to an archipelago of 2009 islands, where some islands are connected by two-way catamaran routes. They travel, playing a game. First, Olya chooses an island to which they fly. Then they travel together on catamarans, taking turns choosing an island where they have not been before (Maxim chooses first). The one who cannot choose an island loses. Prove that with any scheme of routes, Olya can win, no matter how Maxim plays.",
+      "author": "A.V. Shapovalov",
+      "note": ""
+    },
+    {
+      "number": 7,
+      "points": 14,
+      "text": "At the entrance to the cave, there is a drum with N identical barrels arranged in a circle at equal intervals. Inside each barrel, there is a herring -- either head up or head down, but it is not visible (the barrels are closed). In one move, Ali-Baba chooses any set of barrels (from 1 to N) and flips them all. After that, the drum comes into rotation, and when it stops, Ali-Baba cannot determine which barrels are flipped. The cave will open if during the rotation of the drum, all N herrings are arranged with their heads in one direction. For what N can Ali-Baba open the cave in some number of moves?",
+      "author": "L. Braginsky, D. Fomin, P. Kogan",
+      "note": ""
+    }
+  ]
+}

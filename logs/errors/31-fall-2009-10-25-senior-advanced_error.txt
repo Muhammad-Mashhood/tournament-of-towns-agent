@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "D:\features_now\harness\translator.py", line 155, in _parse_model_output
+    data = json.loads(raw)
+  File "C:\Python313\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Python313\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\json\decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Invalid \escape: line 27 column 49 (char 1353)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\features_now\harness\agent.py", line 106, in run
+    translated = translator.translate(parsed, source)
+  File "D:\features_now\harness\translator.py", line 240, in translate
+    translated_json = _parse_model_output(result["raw"], source_record.key)
+  File "D:\features_now\harness\translator.py", line 168, in _parse_model_output
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: Could not parse model output as JSON for 31-fall-2009-10-25-senior-advanced. Raw saved to logs\errors\31-fall-2009-10-25-senior-advanced_raw_response.txt

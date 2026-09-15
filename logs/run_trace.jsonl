@@ -1,0 +1,9 @@
+{"source_key": "31-fall-2009-10-18-junior-basic", "model": "meta-llama/llama-3.3-70b-instruct", "input_tokens": 1207, "output_tokens": 621, "cost_usd": 0.00031942, "elapsed_s": 55.13, "status": "ok"}
+{"source_key": "31-fall-2009-10-18-senior-basic", "model": "meta-llama/llama-3.3-70b-instruct", "input_tokens": 1185, "output_tokens": 560, "cost_usd": 0.0002977, "elapsed_s": 14.8, "status": "ok"}
+{"source_key": "31-fall-2009-10-25-junior-advanced", "model": "meta-llama/llama-3.3-70b-instruct", "input_tokens": 1295, "output_tokens": 789, "cost_usd": 0.00038198, "elapsed_s": 23.28, "status": "ok"}
+{"source_key": "31-fall-2009-10-25-senior-advanced", "model": "meta-llama/llama-3.3-70b-instruct", "input_tokens": 1491, "output_tokens": 893, "cost_usd": 0.00043486, "elapsed_s": 21.08, "status": "ok"}
+{"source_key": "31-fall-2009-10-25-senior-advanced", "model": "meta-llama/llama-3.3-70b-instruct", "input_tokens": 1491, "output_tokens": 918, "cost_usd": 0.00044286, "elapsed_s": 31.04, "status": "ok"}
+{"source_key": "31-fall-2009-10-18-junior-basic", "model": "meta-llama/llama-3.3-70b-instruct", "input_tokens": 1227, "output_tokens": 620, "cost_usd": 0.0003211, "elapsed_s": 16.59, "status": "ok"}
+{"source_key": "31-fall-2009-10-18-senior-basic", "model": "meta-llama/llama-3.3-70b-instruct", "input_tokens": 1185, "output_tokens": 573, "cost_usd": 0.00030186, "elapsed_s": 17.48, "status": "ok"}
+{"source_key": "31-fall-2009-10-25-junior-advanced", "model": "meta-llama/llama-3.3-70b-instruct", "input_tokens": 1295, "output_tokens": 800, "cost_usd": 0.0003855, "elapsed_s": 29.22, "status": "ok"}
+{"source_key": "31-fall-2009-10-25-senior-advanced", "model": "meta-llama/llama-3.3-70b-instruct", "input_tokens": 1491, "output_tokens": 889, "cost_usd": 0.00043358, "elapsed_s": 28.95, "status": "ok"}

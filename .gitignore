@@ -1,0 +1,22 @@
+# Environment & Secrets (CRITICAL: keep API keys out of git)
+.env
+*.env
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Local cache & temp
+cache/
+scratch/
+test_*.pdf
+test_*.py
+check_models.py
+inspect_*.py
+pdf_text*.txt
+
+# OS metadata
+.DS_Store
+Thumbs.db
