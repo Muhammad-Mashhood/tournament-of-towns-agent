@@ -1,9 +1,9 @@
 {
   "processed": [
-    "31-fall-2009-10-18-junior-basic",
-    "31-fall-2009-10-18-senior-basic",
     "31-fall-2009-10-25-junior-advanced",
-    "31-fall-2009-10-25-senior-advanced"
+    "31-fall-2009-10-25-senior-advanced",
+    "31-fall-2009-10-18-junior-basic",
+    "31-fall-2009-10-18-senior-basic"
   ],
   "failed": {}
 }

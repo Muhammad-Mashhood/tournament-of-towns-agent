@@ -1,49 +1,5 @@
 [
   {
-    "key": "31-fall-2009-10-18-junior-basic",
-    "tournament": 31,
-    "round": "fall",
-    "date": "2009-10-18",
-    "level": "junior",
-    "variant": "basic",
-    "source_url": "https://www.turgor.ru/en/problems/31/index.php",
-    "source_type": "html_inline_russian",
-    "needs_translation": true,
-    "model_used": "meta-llama/llama-3.3-70b-instruct",
-    "problem_count": 5,
-    "output_path": "output\\junior\\basic\\31-fall-2009-10-18-junior-basic.pdf",
-    "sha256": "e0fcd733404b6b425bae63213c8c57328f910b4a740b03d31bdacd9c42d27079",
-    "status": "ok",
-    "cost_usd": 0.0003211,
-    "scope": "included",
-    "notes": [
-      "Basic variant 8-9 cl inline on index page; extract by header marker"
-    ],
-    "issues": []
-  },
-  {
-    "key": "31-fall-2009-10-18-senior-basic",
-    "tournament": 31,
-    "round": "fall",
-    "date": "2009-10-18",
-    "level": "senior",
-    "variant": "basic",
-    "source_url": "https://www.turgor.ru/en/problems/31/index.php",
-    "source_type": "html_inline_russian",
-    "needs_translation": true,
-    "model_used": "meta-llama/llama-3.3-70b-instruct",
-    "problem_count": 5,
-    "output_path": "output\\senior\\basic\\31-fall-2009-10-18-senior-basic.pdf",
-    "sha256": "acbdb43a3ea2816c1f76fd4d2d339df28ab816799e516010d6176060cb069ff2",
-    "status": "ok",
-    "cost_usd": 0.00030186,
-    "scope": "included",
-    "notes": [
-      "Basic variant 10-11 cl inline on index page; extract by header marker"
-    ],
-    "issues": []
-  },
-  {
     "key": "31-fall-2009-10-25-junior-advanced",
     "tournament": 31,
     "round": "fall",
@@ -56,9 +12,9 @@
     "model_used": "meta-llama/llama-3.3-70b-instruct",
     "problem_count": 7,
     "output_path": "output\\junior\\advanced\\31-fall-2009-10-25-junior-advanced.pdf",
-    "sha256": "07f3146890f2750d6dd49b026c2e27cf15d5ed3bc4e98a5c9db6c6dc1488100c",
+    "sha256": "c281cf2a28afd4045ac62cac0928f0e4200df390a8eac3b0aab248aca90fe659",
     "status": "ok",
-    "cost_usd": 0.0003855,
+    "cost_usd": 0.00038864,
     "scope": "included",
     "notes": [
       "Advanced variants for both grades in single PDF; split by header 8-9/10-11"
@@ -78,12 +34,56 @@
     "model_used": "meta-llama/llama-3.3-70b-instruct",
     "problem_count": 7,
     "output_path": "output\\senior\\advanced\\31-fall-2009-10-25-senior-advanced.pdf",
-    "sha256": "ddbcd419b7d2730ce9d8e24b8e1fcc251349e66ac317d3abb3bf02b800ecffad",
+    "sha256": "b00d93d4dc7133e2ce65af57a312fb63861fb1983e214cec719105f007401cd9",
     "status": "ok",
-    "cost_usd": 0.00043358,
+    "cost_usd": 0.00043544,
     "scope": "included",
     "notes": [
       "Advanced variants for both grades in single PDF; split by header 8-9/10-11"
+    ],
+    "issues": []
+  },
+  {
+    "key": "31-fall-2009-10-18-junior-basic",
+    "tournament": 31,
+    "round": "fall",
+    "date": "2009-10-18",
+    "level": "junior",
+    "variant": "basic",
+    "source_url": "https://www.turgor.ru/en/problems/31/index.php",
+    "source_type": "html_inline_russian",
+    "needs_translation": true,
+    "model_used": "meta-llama/llama-3.3-70b-instruct",
+    "problem_count": 5,
+    "output_path": "output\\junior\\basic\\31-fall-2009-10-18-junior-basic.pdf",
+    "sha256": "93aff37850cfba4a33403c038171d6a2ca7b1b6e0f717f444cb36ec034a57208",
+    "status": "ok",
+    "cost_usd": 0.00032402,
+    "scope": "included",
+    "notes": [
+      "Basic variant 8-9 cl inline on index page; extract by header marker"
+    ],
+    "issues": []
+  },
+  {
+    "key": "31-fall-2009-10-18-senior-basic",
+    "tournament": 31,
+    "round": "fall",
+    "date": "2009-10-18",
+    "level": "senior",
+    "variant": "basic",
+    "source_url": "https://www.turgor.ru/en/problems/31/index.php",
+    "source_type": "html_inline_russian",
+    "needs_translation": true,
+    "model_used": "meta-llama/llama-3.3-70b-instruct",
+    "problem_count": 5,
+    "output_path": "output\\senior\\basic\\31-fall-2009-10-18-senior-basic.pdf",
+    "sha256": "5aa7653858a4780266b73866b14d2827230177aac5ec8438399073a46d24ffc2",
+    "status": "ok",
+    "cost_usd": 0.0003018,
+    "scope": "included",
+    "notes": [
+      "Basic variant 10-11 cl inline on index page; extract by header marker"
     ],
     "issues": []
   }

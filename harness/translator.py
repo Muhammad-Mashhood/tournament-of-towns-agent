@@ -208,10 +208,16 @@ def _merge_translation(parsed_source: Dict, translated_json: Dict) -> Dict:
         # Clean up any surrounding parens from author
         if author.startswith("(") and author.endswith(")"):
             author = author[1:-1].strip()
+        trans_text = tp.get("text", sp.get("text", ""))
+        src_text_lower = sp.get("text", "").lower()
+        has_fig_ref = any(k in src_text_lower for k in ["рис", "рисун", "чертеж", "чертёж", "[diagram]"])
+        if not has_fig_ref and "[diagram]" in trans_text.lower():
+            trans_text = re.sub(r'\s*\[diagram\]\s*', ' ', trans_text, flags=re.IGNORECASE).strip()
+
         merged_problems.append({
             "number": num,
             "points": pts,
-            "text": tp.get("text", sp.get("text", "")),  # translated first, fallback to Russian
+            "text": trans_text,  # translated first, fallback to Russian
             "author": author,
             "note": tp.get("note", ""),  # [NOTE: ...] flags from model
         })

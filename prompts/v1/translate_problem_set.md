@@ -16,7 +16,7 @@ Translate the following Tournament of Towns problem set from Russian to English.
 5. **Do NOT include solutions**, proofs, or answers. If any solution text is present in the source, ignore it entirely.
 6. **Do NOT add commentary**, explanations, or footnotes outside the JSON structure.
 7. If a problem is ambiguous or seems duplicated, add a `"note"` field with `"[NOTE: ...]"`.
-8. If a diagram is referenced but not representable in text, write `[Diagram]` in the problem text.
+8. Do NOT add `[Diagram]` unless the Russian source explicitly references an actual drawing or figure (e.g. "рис.", "рисунок", "чертёж", "см. рис.") or contains an embedded image. If a problem is purely textual or geometric without an explicit figure reference, do NOT write `[Diagram]`.
 
 ## TOURNAMENT METADATA
 Tournament: {{TOURNAMENT}}
