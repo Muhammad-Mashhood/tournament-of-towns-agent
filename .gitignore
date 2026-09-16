@@ -11,6 +11,7 @@ __pycache__/
 # Local cache & temp
 cache/
 scratch/
+submission/
 test_*.pdf
 test_*.py
 check_models.py
