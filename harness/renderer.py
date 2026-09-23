@@ -283,6 +283,9 @@ def _format_text_for_reportlab(text: str) -> str:
     import html as html_mod
     if not text:
         return ""
+    # Normalize PDF-extracted math glyphs that fall outside WinAnsi encoding:
+    # \u25e6 (white bullet '◦') and \u2218 (ring operator '∘') are used for degrees in TeX
+    text = text.replace('\u25e6', '°').replace('\u2218', '°')
     parts = re.split(r'(\$\$.*?\$\$|\$.*?\$)', text, flags=re.DOTALL)
     out = []
     for part in parts:
@@ -310,6 +313,7 @@ def _convert_latex_to_rl(math_str: str) -> str:
         (r"\\in\b", "∈"), (r"\\subset\b", "⊂"),
         (r"\\pi\b", "π"), (r"\\alpha\b", "α"),
         (r"\\beta\b", "β"), (r"\\gamma\b", "γ"),
+        (r"\\circ\b", "°"),
     ]
     for pat, rep in replacements:
         m = re.sub(pat, rep, m)
