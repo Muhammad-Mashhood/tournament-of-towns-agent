@@ -276,6 +276,41 @@ def _text_to_html_with_math(text: str, l2m_converter) -> str:
     return "".join(html_parts)
 
 
+def _clean_unicode_for_pdf(text: str) -> str:
+    """
+    Clean up typographic ligatures, TeX extracted glyphs, and non-WinAnsi symbols
+    so ReportLab renders them natively without ZapfDingbats box/tofu fallback ('■').
+    """
+    if not text:
+        return ""
+    
+    # 1. TeX typographic ligatures -> standard ASCII letters
+    ligatures = {
+        '\ufb00': 'ff',
+        '\ufb01': 'fi',
+        '\ufb02': 'fl',
+        '\ufb03': 'ffi',
+        '\ufb04': 'ffl',
+        '\ufb05': 'ft',
+        '\ufb06': 'st',
+    }
+    for k, v in ligatures.items():
+        text = text.replace(k, v)
+
+    # 2. Math comparison and operators
+    math_symbols = {
+        '\u2a7d': '≤',  # ⩽ (slanted less-than-or-equal)
+        '\u2a7e': '≥',  # ⩾ (slanted greater-than-or-equal)
+        '\u2212': '-',  # mathematical minus
+        '\u25e6': '°',  # white bullet (TeX \circ)
+        '\u2218': '°',  # ring operator
+    }
+    for k, v in math_symbols.items():
+        text = text.replace(k, v)
+        
+    return text
+
+
 def _format_text_for_reportlab(text: str) -> str:
     """
     Convert text with LaTeX inline math into ReportLab Paragraph-compatible XML markup.
@@ -283,9 +318,7 @@ def _format_text_for_reportlab(text: str) -> str:
     import html as html_mod
     if not text:
         return ""
-    # Normalize PDF-extracted math glyphs that fall outside WinAnsi encoding:
-    # \u25e6 (white bullet '◦') and \u2218 (ring operator '∘') are used for degrees in TeX
-    text = text.replace('\u25e6', '°').replace('\u2218', '°')
+    text = _clean_unicode_for_pdf(text)
     parts = re.split(r'(\$\$.*?\$\$|\$.*?\$)', text, flags=re.DOTALL)
     out = []
     for part in parts:
@@ -304,8 +337,8 @@ def _convert_latex_to_rl(math_str: str) -> str:
     m = math_str
     replacements = [
         (r"\\times", "×"), (r"\\cdot", "·"),
-        (r"\\le\b", "≤"), (r"\\leq\b", "≤"),
-        (r"\\ge\b", "≥"), (r"\\geq\b", "≥"),
+        (r"\\le\b", "≤"), (r"\\leq\b", "≤"), (r"\\leqslant\b", "≤"),
+        (r"\\ge\b", "≥"), (r"\\geq\b", "≥"), (r"\\geqslant\b", "≥"),
         (r"\\ne\b", "≠"), (r"\\neq\b", "≠"),
         (r"\\pm\b", "±"), (r"\\infty\b", "∞"),
         (r"\\approx\b", "≈"), (r"\\dots\b", "..."),
@@ -487,7 +520,7 @@ def _render_reportlab(context: Dict, out_path: Path) -> bool:
     ))
 
     # Scoring Box
-    scoring_text = context.get('scoring_note', '')
+    scoring_text = _clean_unicode_for_pdf(context.get('scoring_note', ''))
     if scoring_text:
         scoring_p = Paragraph(f"<i>{scoring_text}</i>", scoring_style)
         scoring_table = Table([[scoring_p]], colWidths=[A4[0] - 4 * cm])
@@ -520,12 +553,13 @@ def _render_reportlab(context: Dict, out_path: Path) -> bool:
         prob_el.append(Paragraph(body_html, prob_body_style))
 
         if auth_str:
-            if not auth_str.startswith("("):
-                auth_str = f"({auth_str})"
+            clean_auth = _clean_unicode_for_pdf(clean_auth)
+            auth_str = f"({clean_auth})"
             prob_el.append(Paragraph(auth_str, author_style))
 
         if p.get("note"):
-            prob_el.append(Paragraph(p['note'], note_style))
+            clean_note = _clean_unicode_for_pdf(p['note'])
+            prob_el.append(Paragraph(clean_note, note_style))
 
         prob_el.append(HRFlowable(width="100%", thickness=0.3, color=colors.HexColor('#e2e8f0'), spaceBefore=2, spaceAfter=8))
         elements.append(KeepTogether(prob_el))

@@ -320,19 +320,42 @@ def parse_pdf(pdf_bytes: bytes, source_record) -> Dict[str, Any]:
     }
 
 
+def _clean_pdf_text(text: str) -> str:
+    """Normalize typographic ligatures, TeX extracted glyphs, and non-WinAnsi symbols."""
+    if not text:
+        return ""
+    reps = {
+        '\ufb00': 'ff',
+        '\ufb01': 'fi',
+        '\ufb02': 'fl',
+        '\ufb03': 'ffi',
+        '\ufb04': 'ffl',
+        '\ufb05': 'ft',
+        '\ufb06': 'st',
+        '\u2a7d': '≤',
+        '\u2a7e': '≥',
+        '\u2212': '-',
+        '\u25e6': '°',
+        '\u2218': '°',
+    }
+    for k, v in reps.items():
+        text = text.replace(k, v)
+    return text
+
+
 def _extract_pdf_pages(pdf_bytes: bytes, warnings: List[str]) -> List[str]:
     """Extract page text list using PyMuPDF (fitz) or PyPDF2 fallback."""
     try:
         import fitz
         doc = fitz.open(stream=pdf_bytes, filetype="pdf")
-        return [page.get_text() for page in doc]
+        return [_clean_pdf_text(page.get_text()) for page in doc]
     except Exception as e:
         warnings.append(f"PyMuPDF failed: {e}; trying PyPDF2")
 
     try:
         import PyPDF2
         reader = PyPDF2.PdfReader(io.BytesIO(pdf_bytes))
-        return [page.extract_text() or "" for page in reader.pages]
+        return [_clean_pdf_text(page.extract_text() or "") for page in reader.pages]
     except Exception as e:
         warnings.append(f"PyPDF2 failed: {e}")
         return []
